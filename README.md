@@ -16,10 +16,10 @@ while ghp > 0 and action == "atk" and yhp > 0: # loop runs if gob or user not de
   dmg = random.randint(1, 4)
   crt = random.randint(1, 100)
   
-    if action == "atk":
+  if action == "atk":
         if crt >= 85:  # checking for crt
             ghp = (ghp - dmg) - 2  # subtracting for crt damage
-            print("You hit the", monster, "for CRITICAL damage!!")
+            print("You hit the", monster, "for CRITICAL", dmg + 2, " damage!!")
             if ghp <= 0:
                 print("Good job! You slayed the", monster, "!!")
             else:
