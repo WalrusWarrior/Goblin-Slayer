@@ -5,12 +5,12 @@ ghp = 10  # monster health
 dmg = random.randint(1, 4)           # possible attack dmg rand
 crt = random.randint(1, 100) # crits range
 r1 = random.randint(1,3)
-if(r1 == 1)
-monster = "Goblin"
-else
-  if(r1 == 2)
+if(r1 == 1):
+  monster = "Goblin"
+else:
+    if(r1 == 2):
     monster = "Highway Man"
-    else
+    else:
       monster = "Wolf"
 print("You see a", monster, "in your path! ")
 action = input("Would you like to run or atk?")
