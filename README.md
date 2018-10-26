@@ -1,4 +1,5 @@
 # Game
+print("Hey gamers")
 import random # imports the random numbers used in the dmg and crt
 yhp = 20  # hero health
 ghp = 10  # monster health
