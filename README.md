@@ -22,7 +22,7 @@ while yhp > 0:
     if action == "atk":
         if crt >= 85:  # checking for crt
             ghp = (ghp - dmg) - 2  # subtracting for crt damage
-            print("You hit the", monster, "for CRITICAL", dmg + 2, "damage!!")
+            print("\n You hit the", monster, "for CRITICAL", dmg + 2, "damage!!")
             if ghp <= 0:
                 print("Good job! You slayed the", monster, "!!")
                 score = score + 1
@@ -36,10 +36,10 @@ while yhp > 0:
                     print("You slayed", score, "monsters in your lifespan!")
                 else:
                     print("You now have", yhp, "health left!!")                 # hp you have left
-                    action = input("Would you like to run or atk?")
+                    action = input("Would you like to run or atk? \n\n")
         else:
             ghp = ghp - dmg      # reg damage
-            print("You hit the", monster)
+            print("\nYou hit the", monster)
             if ghp <= 0:
                 print("Good job! You slayed the", monster,"!!")
                 score = score + 1
@@ -55,3 +55,4 @@ while yhp > 0:
                     action = input("Would you like to run or atk?")
 if action == "run":    # if user types run than ends the loop
     print("Wow! It was only a little ", monster, "... What a scaredy cat!")
+
