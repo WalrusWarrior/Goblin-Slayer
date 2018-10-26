@@ -36,11 +36,11 @@ while ghp > 0 and action == "atk" or "str" and yhp > 0: # loop runs if gob or us
     if action == "atk":
         if crt >= 85:  # checking for crt
             ghp = (ghp - dmg) - 2  # subtracting for crt damage
-            print("You hit the", monster, "for CRITICAL", dmg + 2, " damage!!")
+            print("You hit the", monster, "for CRITICAL", dmg + 2, "damage!!")
             if ghp <= 0:
                 print("Good job! You slayed the", monster, "!!")
             else:
-                print("The", monster, "now has", ghp, " health remaining!")          # saying how much hp the gob has
+                print("The", monster, "now has", ghp, "health remaining!")          # saying how much hp the gob has
                 print("The", monster, "is attacking!!")
                 yhp = (yhp - 2)                                            # gobs attack
                 if yhp <= 0:
