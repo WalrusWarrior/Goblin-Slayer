@@ -1,4 +1,3 @@
-# Game
 import random  # imports the random numbers used in the dmg and crt
 
 yhp = 20  # hero health
@@ -23,11 +22,13 @@ while yhp > 0:
                         monster = "Pesky Bird"
     print("You see a", monster, "in your path! It has", ghp, "health!")
     action = input("What would you like to do? [atk] [run]")
+    while action != "atk" and action != "run":
+        print("invalid input please try again")
+        action = input("What would you like to do? [atk] [run]")
 
     while ghp > 0 and action == "atk" and yhp > 0:  # loop runs if gob or user not dead and if user does not say 'run'
         dmg = random.randint(1, 5)
         crt = random.randint(1, 100)
-
         if action == "atk":
             if crt >= 85:  # checking for crt
                 ghp = (ghp - dmg) - 3  # subtracting for crt damage
@@ -44,10 +45,13 @@ while yhp > 0:
                     if yhp <= 0:
                         print("YOU DIED")
                         print("You slayed", score, "monsters in your lifespan!")
-                        print("Over the course of your adventure you earned", gold,"gold coins!")
+                        print("Over the course of your adventure you earned", gold, "gold coins!")
                     else:
                         print("You now have", yhp, "health left!!")  # hp you have left
                         action = input("What would you like to do? [atk] [run]\n\n")
+                        while action != "atk" and action != "run":      # checks that you type in a valid command
+                            print("invalid input please try again")
+                            action = input("What would you like to do? [atk] [run]")
             else:
                 ghp = ghp - dmg  # reg damage
                 print("\nYou hit the", monster, "for", dmg, "damage!")
@@ -62,13 +66,16 @@ while yhp > 0:
                     if yhp <= 0:
                         print("\n- YOU DIED -")
                         print("You slayed", score, "monsters in your lifespan!")
-                        print("Over the course of your adventure you earned", gold, "gold coins!")
+                        print("Over the course of your adventure you earned", gold,"gold coins!")
                     else:
                         print("You now have", yhp, "health left!!")
                         action = input("What would you like to do? [atk] [run]")
+                        while action != "atk" and action != "run":   # checks that you type in a valid command
+                            print("invalid input please try again")
+                            action = input("What would you like to do? [atk] [run]")
     else:
         if action == "run":
-             yhp = 0
-             print("\n- YOU RAN AWAY -")
-             print("You slayed", score, "monsters in your journey, before wimping out!")
-             print("However, you were able to find", gold, "gold coins!")
+            yhp = 0
+            print("\n- YOU RAN AWAY -")
+            print("You slayed", score, "monsters in your journey, before wimping out!")
+            print("However, you were able to find", gold, "gold coins!")
