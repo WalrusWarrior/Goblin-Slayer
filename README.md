@@ -24,7 +24,7 @@ while yhp > 0:
     print("You see a", monster, "in your path! It has", ghp, "health!")
     action = input("What would you like to do? [atk] [run]")
 
-    while ghp > 0 and action == "atk" and yhp > 0:  # loop runs if gob or user not dead and if user says atk
+    while ghp > 0 and action == "atk" and yhp > 0:  # loop runs if gob or user not dead and if user does not say 'run'
         dmg = random.randint(1, 5)
         crt = random.randint(1, 100)
 
@@ -66,5 +66,9 @@ while yhp > 0:
                     else:
                         print("You now have", yhp, "health left!!")
                         action = input("What would you like to do? [atk] [run]")
-if action == "run":  # if user types run than ends the loop
-    print("Wow! It was only a little ", monster, "... What a scaredy cat!"
+    else:
+        if action == "run":
+             yhp = 0
+             print("\n- YOU RAN AWAY -")
+             print("You slayed", score, "monsters in your journey, before wimping out!")
+             print("However, you were able to find", gold, "gold coins!")
