@@ -22,20 +22,29 @@ while yhp > 0:
                     if r1 == 5:
                         monster = "Pesky Bird"
     print("You see a", monster, "in your path! It has", ghp, "health!")
-    action = input("What would you like to do? [atk] [run] [inv]")
-    while action != "atk" and action != "run":
+    action = input("What would you like to do? [atk] [run] [inv] [esc]")
+    if gold > 0 and action == "esc":  # escape allows you to run away from the monster but you leave behind some gold
+        gold = gold - 1
+        print("you escaped the monster but left behind", 1, "gold coin")
+    else:
+        while action != "atk" and action != "run" and action != "inv":
+            print("you can not escape this monster!!")
+            action = input("What would you like to do? [atk] [run] [inv] [esc]")
+
+    while action != "atk" and action != "run" and action != "inv" and action != "esc":
         print("Invalid input, Please try again!")
-        action = input("What would you like to do? [atk] [run] [inv]")
+        action = input("What would you like to do? [atk] [run] [inv] [esc]")
 
     while ghp > 0 and action == "atk" and yhp > 0:  # loop runs if gob or user not dead and if user does not say 'run'
         dmg = random.randint(1, 5)
         crt = random.randint(1, 100)
+
         if action == "atk":
             if crt >= 85:  # checking for crt
                 ghp = (ghp - dmg) - 3  # subtracting for crt damage
                 print("\nYou hit the", monster, "for CRITICAL", dmg + 3, "damage!!")
                 if ghp <= 0:
-                    print("Good job! You slayed the", monster, "!!")
+                    print("Good job! You slayed the", monster, "!! and found", gold,"coins!!")
                     score = score + 1
                     gold = gold + random.randint(5, 15)
                     if monster == "Highway Man" or monster == "Goblin":
@@ -52,15 +61,23 @@ while yhp > 0:
                         print("You died with", potions, "unused potion(s)!")
                     else:
                         print("You now have", yhp, "health left!!")  # hp you have left
-                        action = input("What would you like to do? [atk] [run] [inv]\n\n")
-                        while action != "atk" and action != "run":      # checks that you type in a valid command
+                        action = input("What would you like to do? [atk] [run] [inv] [esc]\n\n")
+                        if gold > 0 and action == "esc":
+                            gold = gold - 1
+                            print("you escaped the monster but left behind", 1, "gold coin")
+                        else:
+                            while action != "atk" and action != "run" and action != "inv":
+                                print("you can not escape this monster!!")
+                                action = input("What would you like to do? [atk] [run] [inv] [esc]")
+                        while action != "atk" and action != "run" and action != "inv" and action != "esc":
                             print("Invalid input, Please try again!")
-                            action = input("What would you like to do? [atk] [run] [inv]")
+                            action = input("What would you like to do? [atk] [run] [inv] [esc]")
+
             else:
                 ghp = ghp - dmg  # reg damage
                 print("\nYou hit the", monster, "for", dmg, "damage!")
                 if ghp <= 0:
-                    print("Good job! You slayed the", monster, "!!")
+                    print("Good job! You slayed the", monster, "!! and found", gold,"coins!!")
                     score = score + 1
                     gold = gold + random.randint(1, 10)
                     if monster == "Highway Man" or monster == "Goblin":
@@ -77,10 +94,18 @@ while yhp > 0:
                         print("You died with", potions, "unused potion(s)!")
                     else:
                         print("You now have", yhp, "health left!!")
-                        action = input("What would you like to do? [atk] [run] [inv]")
-                        while action != "atk" and action != "run":   # checks that you type in a valid command
-                            print("invalid input please try again")
-                            action = input("What would you like to do? [atk] [run] [inv]")
+                        action = input("What would you like to do? [atk] [run] [inv] [esc]")
+                        if gold > 0 and action == "esc":
+                            gold = gold - 1
+                            print("you escaped the monster but left behind", 1, "gold coin")
+                        else:
+                            while action != "atk" and action != "run" and action != "inv":
+                                print("you can not escape this monster!!")
+                                action = input("What would you like to do? [atk] [run] [inv] [esc]")
+                        while action != "atk" and action != "run" and action != "inv" and action != "esc":
+                            print("Invalid input, Please try again!")
+                            action = input("What would you like to do? [atk] [run] [inv] [esc]")
+
     else:
         if action == "run":
             yhp = 0
