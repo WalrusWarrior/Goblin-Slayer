@@ -24,19 +24,36 @@ while yhp > 0:
     print("You see a", monster, "in your path! It has", ghp, "health!")
     action = input("What would you like to do? [atk] [run] [inv] [esc]")
     if gold == 0 and potions == 0 and action == "inv":
-        while action != "atk" and action != "run" and action == "inv" and action != "esc":
+        while action == "inv":
             print("\nyou have nothing in your inventory")
             action = input("What would you like to do? [atk] [run] [inv] [esc]")
-    else:                                                                        # inventory
+                                                                 # inventory lets you see potions + gold
+    else:  # inventory
         if action == "inv":
-            print("you have:\n", gold,"gold coins\n", potions, "potions")
+            while action == "inv":
+                print("you have:\n", gold, "gold coins\n", potions, "potions")
+                action = input("What would you like to do? [atk] [run] [inv] [esc]")
+
     if gold >= 4 and action == "esc":  # escape allows you to run away from the monster but you leave behind some gold
         gold = gold - goldY
         print("\nYou escaped the monster but you lost", goldY, "gold coins!\t\t\t\t\t-", goldY, "GOLD")
+
     else:
         while action != "atk" and action != "run" and action != "inv" and action == "esc":
             print("You cannot escape from this monster!!")
             action = input("What would you like to do? [atk] [run] [inv] [esc]")
+            if gold == 0 and potions == 0 and action == "inv":
+                while action == "inv":
+                    print("\nyou have nothing in your inventory")
+                    action = input("What would you like to do? [atk] [run] [inv] [esc]")
+                                                     # this second inventory stops the monster from cycling if you go from esc to inventory
+            else:  # inventory
+                if action == "inv":
+                    while action == "inv":
+                        print("you have:\n", gold, "gold coins\n", potions, "potions")
+                        action = input("What would you like to do? [atk] [run] [inv] [esc]")
+
+
 
     while action != "atk" and action != "run" and action != "inv" and action != "esc":
         print("Invalid input, Please try again!")
@@ -72,25 +89,30 @@ while yhp > 0:
                     else:
                         print("You now have", yhp, "health left!!")  # hp you have left
                         action = input("What would you like to do? [atk] [run] [inv] [esc]\n\n")
-                        if gold == 0 and potions == 0 and action == "inv":
-                            while action != "atk" and action != "run" and action == "inv" and action != "esc":
-                                print("\nyou have nothing in your inventory")
-                                action = input("What would you like to do? [atk] [run] [inv] [esc]")
-                        else:  # inventory
-                            if action == "inv":
-                                print("\nyou have:\n", gold, "gold coins\n", potions, "potions\n")
-                                action = input("What would you like to do? [atk] [run] [inv] [esc]")
-
-                        if gold >= 4 and action == "esc":
+                        if gold >= 4 and action == "esc":  # escape allows you to run away from the monster but you leave behind some gold
                             gold = gold - goldY
-                            print("\nYou escaped the monster but you lost", goldY, "gold coins!\t\t\t\t\t-", goldY, "GOLD")
+                            print("\nYou escaped the monster but you lost", goldY, "gold coins!\t\t\t\t\t-", goldY,
+                                  "GOLD")
+
                         else:
                             while action != "atk" and action != "run" and action != "inv" and action == "esc":
                                 print("You cannot escape from this monster!!")
                                 action = input("What would you like to do? [atk] [run] [inv] [esc]")
+                                if gold == 0 and potions == 0 and action == "inv":
+                                    while action == "inv":
+                                        print("\nyou have nothing in your inventory")
+                                        action = input("What would you like to do? [atk] [run] [inv] [esc]")
+
+                                else:  # inventory
+                                    if action == "inv":
+                                        while action == "inv":
+                                            print("you have:\n", gold, "gold coins\n", potions, "potions")
+                                            action = input("What would you like to do? [atk] [run] [inv] [esc]")
+
                         while action != "atk" and action != "run" and action != "inv" and action != "esc":
                             print("Invalid input, Please try again!")
                             action = input("What would you like to do? [atk] [run] [inv] [esc]")
+
 
             else:
                 ghp = ghp - dmg  # reg damage
@@ -114,24 +136,31 @@ while yhp > 0:
                     else:
                         print("You now have", yhp, "health left!!")
                         action = input("What would you like to do? [atk] [run] [inv] [esc]")
-                        if gold == 0 and potions == 0 and action == "inv":
-                            while action != "atk" and action != "run" and action == "inv" and action != "esc":
-                                print("\nyou have nothing in your inventory")
-                                action = input("What would you like to do? [atk] [run] [inv] [esc]")
-                        else:  # inventory
-                            if action == "inv":
-                                print("\nyou have:\n", gold, "gold coins\n", potions, "potions\n")
-                                action = input("What would you like to do? [atk] [run] [inv] [esc]")
-                        if gold >= 4 and action == "esc":
+                        if gold >= 4 and action == "esc":  # escape allows you to run away from the monster but you leave behind some gold
                             gold = gold - goldY
-                            print("\nYou escaped the monster but you lost", goldY, "gold coins!\t\t\t\t\t-", goldY, "GOLD")
+                            print("\nYou escaped the monster but you lost", goldY, "gold coins!\t\t\t\t\t-", goldY,
+                                  "GOLD")
+
                         else:
                             while action != "atk" and action != "run" and action != "inv" and action == "esc":
                                 print("You cannot escape from this monster!!")
                                 action = input("What would you like to do? [atk] [run] [inv] [esc]")
+                                if gold == 0 and potions == 0 and action == "inv":
+                                    while action == "inv":
+                                        print("\nyou have nothing in your inventory")
+                                        action = input("What would you like to do? [atk] [run] [inv] [esc]")
+
+                                else:  # inventory
+                                    if action == "inv":
+                                        while action == "inv":
+                                            print("you have:\n", gold, "gold coins\n", potions, "potions")
+                                            action = input("What would you like to do? [atk] [run] [inv] [esc]")
                         while action != "atk" and action != "run" and action != "inv" and action != "esc":
                             print("Invalid input, Please try again!")
                             action = input("What would you like to do? [atk] [run] [inv] [esc]")
+
+
+
     else:
         if action == "run":
             yhp = 0
