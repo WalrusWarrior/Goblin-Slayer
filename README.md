@@ -7,22 +7,13 @@ potions = 0
 actionlist = ["[atk]","[run]","[inv]","[esc]"]
 while yhp > 0:
     ghp = random.randint(7, 15)  # monster health
-    r1 = random.randint(1, 5)
-    if r1 == 1:
-        monster = "Goblin"
-    else:
-        if r1 == 2:
-            monster = "Highway Man"
-        else:
-            if r1 == 3:
-                monster = "Wolf"
-            else:
-                if r1 == 4:
-                    monster = "Green Slime"
-                else:
-                    if r1 == 5:
-                        monster = "Pesky Bird"
+
+    # Monster Selection
+    mon = ["Goblin", "Highway Man", "Wolf", "Green Slime", "Pesky Bird"]
+    m_ran = random.SystemRandom()
+    monster = m_ran.choice(mon) # Holds the value of the monster until death.
     print("You see a", monster, "in your path! It has", ghp, "health!")
+
     action = input("What would you like to do? " + str(actionlist))
     if gold == 0 and potions == 0 and action == "inv":
         while action == "inv":
